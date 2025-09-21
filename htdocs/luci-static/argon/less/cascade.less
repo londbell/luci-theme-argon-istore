@@ -79,6 +79,8 @@
     --blur-opacity: 0.5;
     --blur-radius-dark: 10px;
     --blur-opacity-dark: 0.5;
+    --brand-light-color: #ffffff;
+    --brand-dark-color: #ffffff;
     --font-family-sans-serif: "Google Sans", "Microsoft Yahei", "WenQuanYi Micro Hei", "sans-serif", "Helvetica Neue", "Helvetica", "Hiragino Sans GB";
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --font-family-normal: Open Sans, PingFangSC-Regular, Microsoft Yahei, WenQuanYi Micro Hei, "Helvetica Neue", Helvetica, Hiragino Sans GB, sans-serif;
@@ -441,8 +443,8 @@ hr {
                 -webkit-box-align: center;
                 align-items: center;
                 margin: 50px auto 100px 50px;
-                color: #525461;
-                color: var(--default);
+  		color: #fff;
+  		color: var(--brand-light-color);
 
                 .icon {
                     width: 50px;
@@ -451,10 +453,9 @@ hr {
                 }
 
                 .brand-text {
-                    font-size: 1.25rem;
+                    font-size: 2rem;
                     font-weight: 700;
-                    font-family: "TypoGraphica";
-
+                    font-family: "Sniglet-Regular";
                 }
 
                 &:hover {
@@ -666,7 +667,7 @@ small {
             font-size: 1.8rem;
             color: #5e72e4;
             color: var(--primary);
-            font-family: "TypoGraphica";
+            font-family: "Sniglet-Regular";;
             text-decoration: none;
             text-align: center;
             cursor: default;
@@ -770,8 +771,8 @@ header {
 
                 .brand {
                     font-size: 1.5rem;
-                    color: #fff;
-                    font-family: "TypoGraphica";
+                    color: var(--brand-light-color);
+                    font-family: "Sniglet-Regular";
                     text-decoration: none;
                     padding-left: 1rem;
                     cursor: default;

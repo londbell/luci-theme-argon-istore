@@ -11,7 +11,16 @@ LUCI_DEPENDS:=+curl +jsonfilter
 PKG_VERSION:=2.2.12.2
 PKG_RELEASE:=20250815
 
-LUCI_MINIFY_CSS:=0
+#LUCI_MINIFY_CSS:=0
+
+define Package/luci-theme-argon/postrm
+#!/bin/sh
+[ -n "$${IPKG_INSTROOT}" ] || {
+	uci -q delete luci.themes.Argon
+	uci set luci.main.mediaurlbase='/luci-static/bootstrap'
+	uci commit luci
+}
+endef
 
 include $(TOPDIR)/feeds/luci/luci.mk
 

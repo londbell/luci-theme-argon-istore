@@ -40,7 +40,7 @@
 	local mode = 'normal'
 	local dark_css = fs.readfile('/www/luci-static/argon/css/dark.css')
 	local bar_color = '#5e72e4'
-	local primary, dark_primary, blur_radius, blur_radius_dark, blur_opacity
+	local primary, dark_primary, blur_radius, blur_radius_dark, blur_opacity, brand_light_color, brand_dark_color
 	if fs.access('/etc/config/argon') then
 		primary = uci:get_first('argon', 'global', 'primary')
 		dark_primary = uci:get_first('argon', 'global', 'dark_primary')
@@ -49,7 +49,15 @@
 		blur_opacity = uci:get_first('argon', 'global', 'transparency')
 		blur_opacity_dark = uci:get_first('argon', 'global', 'transparency_dark')
 		mode = uci:get_first('argon', 'global', 'mode')
+		brand_light_color = uci:get_first('argon', 'global', 'brand_light_color')
+		brand_dark_color = uci:get_first('argon', 'global', 'brand_dark_color')
 		bar_color = mode == 'dark' and dark_primary or primary
+		if not brand_light_color then
+			brand_light_color = "#ffffff"
+		end
+		if not brand_dark_color then
+			brand_dark_color = "#ffffff"
+		end
 	end
 -%>
 <!DOCTYPE html>
@@ -100,6 +108,8 @@
             --blur-opacity:<%=blur_opacity%>;
             --blur-radius-dark:<%=blur_radius_dark%>px;
             --blur-opacity-dark:<%=blur_opacity_dark%>;
+			--brand-light-color: <%=brand_light_color%>;
+			--brand-dark-color: <%=brand_dark_color%>;
         }
         <% end -%>
     </style>
